@@ -21,7 +21,7 @@ from app import (OPTIONAL_RESOURCES, RESOURCES, format_sheet, inspect_workbook,
 
 
 st.set_page_config(page_title="ABC Aprendiz · Ensalamento",
-                   page_icon=str(Path(__file__).with_name("abc-logo-1024x798.webp")),
+                   page_icon=str(Path(__file__).parent / "assets" / "abc-logo-1024x798.webp"),
                    layout="wide")
 st.html(Path(__file__).parent / "assets" / "interface.css")
 
@@ -796,7 +796,7 @@ with st.container(horizontal=True, horizontal_alignment="center"):
         with st.container(key="abc_header"):
             brand_col, title_col = st.columns([1, 4], gap="large", vertical_alignment="center")
             with brand_col.container(key="abc_brand"):
-                st.image(str(Path(__file__).with_name("abc1024x279.webp")), width="stretch",
+                st.image(str(Path(__file__).parent / "assets" / "abc1024x279.webp"), width="stretch",
                          alt="ABC Aprendiz — Centro Social de Educação para o Trabalho")
             with title_col.container(gap="small"):
                 st.title("Ensalamento de alunos")
@@ -804,8 +804,8 @@ with st.container(horizontal=True, horizontal_alignment="center"):
 
         work_tab, manual_tab = st.tabs(["Ensalamento", "Manual e ajuda"])
 
-        manual_text = Path(__file__).with_name("MANUAL_USUARIO.md").read_text(encoding="utf-8")
-        manual_pdf = Path(__file__).with_name("MANUAL_USUARIO.pdf").read_bytes()
+        manual_text = (Path(__file__).parent / "docs" / "MANUAL_USUARIO.md").read_text(encoding="utf-8")
+        manual_pdf = (Path(__file__).parent / "docs" / "MANUAL_USUARIO.pdf").read_bytes()
         show_manual = st.sidebar.toggle("Abrir manual ao lado", value=False, key="show_manual_pdf")
         if show_manual:
             st.sidebar.subheader("Manual completo")

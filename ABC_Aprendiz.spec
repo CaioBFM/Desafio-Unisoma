@@ -12,10 +12,9 @@ for name in ("streamlit", "st_aggrid"):
     datas += collect_data_files(name)
 for name in ("streamlit", "streamlit-aggrid", "pulp", "openpyxl", "pandas"):
     datas += copy_metadata(name, recursive=True)
-for name in (".streamlit", "assets", "static"):
+for name in (".streamlit", "assets", "static", "docs"):
     datas.append((str(root / name), name))
-for name in ("streamlit_app.py", "app.py", "pdf_report.py", "abc-logo-1024x798.webp",
-             "abc1024x279.webp", "MANUAL_USUARIO.md", "MANUAL_USUARIO.pdf"):
+for name in ("streamlit_app.py", "app.py", "pdf_report.py"):
     datas.append((str(root / name), "."))
 cbc = Path(pulp.PULP_CBC_CMD().path)
 if not cbc.is_file():

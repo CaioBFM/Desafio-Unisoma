@@ -66,9 +66,9 @@ def build_manual(source):
 
 
 if __name__ == '__main__':
-    source = (PROJECT / 'MANUAL_USUARIO.md').read_text(encoding='utf-8')
+    source = (PROJECT / 'docs' / 'MANUAL_USUARIO.md').read_text(encoding='utf-8')
     if '\u2014' in source or '\u2013' in source:
         raise ValueError('Revise os travessões do manual antes de gerar o PDF.')
-    output = PROJECT / 'MANUAL_USUARIO.pdf'
+    output = PROJECT / 'docs' / 'MANUAL_USUARIO.pdf'
     output.write_bytes(build_manual(source))
     print(f'Manual atualizado: {output.name}')
